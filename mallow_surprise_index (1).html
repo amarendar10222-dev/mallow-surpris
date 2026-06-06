@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Surprise for Mallow</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#6a85ff,#b388ff);
+    color:white;
+    overflow-x:hidden;
+    text-align:center;
+}
+.container{padding:40px 20px;max-width:900px;margin:auto;}
+.card{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:25px;
+    margin:20px auto;
+    backdrop-filter:blur(8px);
+}
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+}
+#scene,#content{display:none;}
+.runner{
+    position:relative;
+    font-size:80px;
+    left:-120px;
+}
+@keyframes runAcross{
+    from{left:-120px;}
+    to{left:100vw;}
+}
+.show{animation:runAcross 4s linear forwards;}
+#pizza{font-size:100px;opacity:0;transition:1s;}
+#message{opacity:0;transition:1s;}
+#leaveMsg{display:none;margin-top:15px;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌟 A Small Surprise For Mallow 🌟</h1>
+    <p>Someone wanted to make you smile today 😊</p>
+    <button onclick="startSurprise()">🎁 Open Surprise</button>
+
+    <div id="scene">
+        <div id="dog" class="runner">🐶</div>
+        <div id="horse" class="runner">🐴</div>
+        <div id="pizza">🍕</div>
+        <div id="message" class="card">
+            <h2>Dear Mallow,</h2>
+            <p>You said only dogs and horses could kidnap you.</p>
+            <p>So I brought both.</p>
+            <p>And because pizza works better than kidnapping...</p>
+            <h3>Welcome to your surprise 😊</h3>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="card">
+            <h2>Things We Know About Mallow</h2>
+            <p>🐶 Loves dogs</p>
+            <p>🍕 Can be bribed with pizza</p>
+            <p>🚫 Doesn't like red</p>
+            <p>👑 R5 and difficult to kidnap</p>
+            <p>😂 Always has a comeback ready</p>
+        </div>
+
+        <div class="card">
+            <h2>Official Friendship Certificate 📜</h2>
+            <p>This certifies that Mallow is:</p>
+            <p>✅ A valued friend</p>
+            <p>✅ A professional pizza enjoyer</p>
+            <p>✅ A dog lover</p>
+            <p>✅ Officially not allowed to disappear without permission 😜</p>
+        </div>
+
+        <div class="card">
+            <h2>A Small Message</h2>
+            <p>I wanted to make you a surprise because you've become one of the people who make the game more fun.</p>
+            <p>I'm glad you're here, and I'm sure many others feel the same.</p>
+            <p>So this isn't really a kidnapping...</p>
+            <p>It's more of a friendly attempt to keep you around 😄</p>
+        </div>
+
+        <div class="card">
+            <button onclick="denyLeave()">Can I leave now?</button>
+            <div id="leaveMsg">
+                ❌ Request Denied<br><br>
+                Reason: Your friends like having you around 💜
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Stay Awesome, Mallow 🌟</h2>
+            <p>From Amar 🐰</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function startSurprise(){
+    document.getElementById('scene').style.display='block';
+
+    const dog=document.getElementById('dog');
+    const horse=document.getElementById('horse');
+
+    dog.classList.add('show');
+
+    setTimeout(()=>{
+        horse.classList.add('show');
+    },1500);
+
+    setTimeout(()=>{
+        document.getElementById('pizza').style.opacity='1';
+    },4500);
+
+    setTimeout(()=>{
+        document.getElementById('message').style.opacity='1';
+    },5500);
+
+    setTimeout(()=>{
+        document.getElementById('content').style.display='block';
+    },7000);
+}
+
+function denyLeave(){
+    document.getElementById('leaveMsg').style.display='block';
+}
+</script>
+</body>
+</html>
